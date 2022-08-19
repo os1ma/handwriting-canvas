@@ -1,6 +1,6 @@
 {
   "name": "handwriting-canvas",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "JavaScript library for handwriting on canvas",
   "engines": {
     "node": ">=14"
