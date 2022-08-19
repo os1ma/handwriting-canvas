@@ -1,13 +1,5 @@
-import { hello } from '../src';
-
-describe('hello', () => {
-  it('print hello', () => {
-    const log = jest.spyOn(console, 'log').mockReturnValue();
-
-    hello();
-
-    expect(log).toHaveBeenNthCalledWith(1, 'hello');
-
-    log.mockRestore();
+describe('jest', () => {
+  it('1 + 2 = 3', () => {
+    expect(1 + 2).toBe(3);
   });
 });

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8" />
+  <title>handwiting-canvas</title>
+  <style>
+    #draw-area {
+      border: 1px solid #000000;
+    }
+
+    #created-png {
+      height: 280px;
+      width: 280px;
+      border: 1px solid #000000;
+      margin-right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="draw-area" width="280px" height="280px"></canvas>
+  <button id="create-png-button">create PNG</button>
+  <button id="clear-button">clear</button>
+  <img id="created-png" />
+  <!-- TODO -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/os1ma/dist/handwiting-canvas.min.js"></script> -->
+  <script>
+    const canvasElement = document.querySelector('#draw-area');
+    const canvas = new HandwritingCanvas(canvasElement);
+
+    document
+      .querySelector('#create-png-button')
+      .addEventListener('click', async () => {
+        if (canvas.isEmpty) {
+          return;
+        }
+
+        const blob = canvas.toBlob('image/png');
+        const imageUrl = URL.createObjectURL(blob);
+        document.querySelector('#created-png').src = imageUrl;
+      });
+
+    document.querySelector('#clear-button').addEventListener('click', () => {
+      canvas.clear();
+    });
+  </script>
+</body>

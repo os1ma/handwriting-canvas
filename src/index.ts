@@ -1,4 +1,4 @@
-export const hello = (): void => {
+export const hello = () => {
   console.log('hello');
 };
 
@@ -7,7 +7,7 @@ interface Position {
   y: number;
 }
 
-export class HandWritingCanvas {
+export class HandwritingCanvas {
   private context;
   private lastPosition: Position | null = null;
   private dragging = false;
