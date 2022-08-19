@@ -5,7 +5,7 @@
     "moduleResolution": "Node",
     "esModuleInterop": true,
     "strict": true,
-    "lib": ["ESNext"],
+    "lib": ["ESNext", "DOM"],
     "types": ["node", "jest"],
     "outDir": "dist"
   },
