@@ -1,0 +1,20 @@
+{
+  "name": "handwriting-canvas",
+  "version": "1.0.0",
+  "description": "JavaScript library for handwriting on canvas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/os1ma/handwriting-canvas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/os1ma/handwriting-canvas/issues"
+  },
+  "homepage": "https://github.com/os1ma/handwriting-canvas#readme"
+}
