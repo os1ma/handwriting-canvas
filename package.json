@@ -8,6 +8,9 @@
   "files": [
     "dist"
   ],
+  "bin": {
+    "my-hello-lib": "dist/bin/index.js"
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "run-p build:*",
