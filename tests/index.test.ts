@@ -1,13 +1,13 @@
-import { hello } from '../src'
+import { hello } from '../src';
 
 describe('hello', () => {
   it('print hello', () => {
-    const log = jest.spyOn(console, 'log').mockReturnValue()
+    const log = jest.spyOn(console, 'log').mockReturnValue();
 
-    hello()
+    hello();
 
-    expect(log).toHaveBeenNthCalledWith(1, 'hello')
+    expect(log).toHaveBeenNthCalledWith(1, 'hello');
 
-    log.mockRestore()
-  })
-})
+    log.mockRestore();
+  });
+});
