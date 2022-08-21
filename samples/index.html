@@ -32,7 +32,7 @@
           return;
         }
 
-        const blob = canvas.toBlob('image/png');
+        const blob = await canvas.toBlob('image/png');
         const imageUrl = URL.createObjectURL(blob);
         document.querySelector('#created-png').src = imageUrl;
       });
