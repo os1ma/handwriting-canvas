@@ -4,13 +4,20 @@ interface Position {
 }
 
 export class HandwritingCanvas {
-  private context;
-  private lastPosition: Position | null = null;
-  private dragging = false;
+  private _context;
+  private _lastPosition: Position | null = null;
+  private _dragging = false;
   private _isEmpty = true;
 
   constructor(private canvasElement: HTMLCanvasElement) {
-    this.context = canvasElement.getContext('2d')!;
+    this._context = canvasElement.getContext('2d')!;
+
+    // The following are the default settings.
+    // If you want to override them, you can get `context` and set values.
+    this._context.lineCap = 'round';
+    this._context.lineJoin = 'round';
+    this._context.lineWidth = 10;
+    this._context.strokeStyle = 'black';
 
     canvasElement.addEventListener('mousedown', () => {
       this.dragStart();
@@ -41,7 +48,7 @@ export class HandwritingCanvas {
 
   clear() {
     this._isEmpty = true;
-    this.context.clearRect(
+    this._context.clearRect(
       0,
       0,
       this.canvasElement.width,
@@ -49,43 +56,42 @@ export class HandwritingCanvas {
     );
   }
 
+  get context() {
+    return this._context;
+  }
+
   get isEmpty() {
     return this._isEmpty;
   }
 
   private dragStart() {
-    this.context.beginPath();
+    this._context.beginPath();
 
-    this.dragging = true;
+    this._dragging = true;
     this._isEmpty = false;
   }
 
   private dragEnd() {
-    this.context.closePath();
-    this.dragging = false;
+    this._context.closePath();
+    this._dragging = false;
 
-    this.lastPosition = null;
+    this._lastPosition = null;
   }
 
   private draw(pos: Position) {
-    if (!this.dragging) {
+    if (!this._dragging) {
       return;
     }
 
-    this.context.lineCap = 'round';
-    this.context.lineJoin = 'round';
-    this.context.lineWidth = 10;
-    this.context.strokeStyle = 'black';
-
-    if (this.lastPosition === null) {
-      this.context.moveTo(pos.x, pos.y);
+    if (this._lastPosition === null) {
+      this._context.moveTo(pos.x, pos.y);
     } else {
-      this.context.moveTo(this.lastPosition.x, this.lastPosition.y);
+      this._context.moveTo(this._lastPosition.x, this._lastPosition.y);
     }
 
-    this.context.lineTo(pos.x, pos.y);
-    this.context.stroke();
+    this._context.lineTo(pos.x, pos.y);
+    this._context.stroke();
 
-    this.lastPosition = pos;
+    this._lastPosition = pos;
   }
 }
