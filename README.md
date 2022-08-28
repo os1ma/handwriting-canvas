@@ -1,5 +1,7 @@
 # handwriting-canvas
 
+[![](https://data.jsdelivr.com/v1/package/npm/handwriting-canvas/badge)](https://www.jsdelivr.com/package/npm/handwriting-canvas)
+
 JavaScript library for handwriting on canvas
 
 ![overview](./doc/overview.gif)
