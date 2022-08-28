@@ -12,9 +12,6 @@
   "files": [
     "dist"
   ],
-  "bin": {
-    "my-hello-lib": "dist/bin/index.js"
-  },
   "scripts": {
     "lint": "run-s lint:*",
     "lint:eslint": "eslint . --ext .ts,.tsx --fix",
