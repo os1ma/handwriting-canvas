@@ -1,7 +1,3 @@
-export const hello = () => {
-  console.log('hello');
-};
-
 interface Position {
   x: number;
   y: number;

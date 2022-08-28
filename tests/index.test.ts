@@ -1,5 +1,3 @@
-describe('jest', () => {
-  it('1 + 2 = 3', () => {
-    expect(1 + 2).toBe(3);
-  });
+it('should write test codes', () => {
+  // TODO
 });
