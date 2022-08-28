@@ -4,22 +4,24 @@
   <title>handwiting-canvas</title>
   <style>
     #draw-area {
-      border: 1px solid #000000;
+      border: 1px solid #000;
     }
 
     #created-png {
       height: 280px;
       width: 280px;
-      border: 1px solid #000000;
-      margin-right: 20px;
+      border: 1px solid #000;
     }
   </style>
 </head>
 <body>
   <canvas id="draw-area" width="280px" height="280px"></canvas>
-  <button id="create-png-button">create PNG</button>
-  <button id="clear-button">clear</button>
-  <img id="created-png" />
+  <div>
+    <button id="create-png-button">create PNG</button>
+    <button id="clear-button">clear</button>
+  </div>
+  <br />
+  <div id="created-png"></div>
   <script src="https://cdn.jsdelivr.net/npm/handwriting-canvas@0.0.2/dist/main.min.js"></script>
   <script>
     const canvasElement = document.querySelector('#draw-area');
@@ -33,8 +35,19 @@
         }
 
         const blob = await canvas.toBlob('image/png');
+
         const imageUrl = URL.createObjectURL(blob);
-        document.querySelector('#created-png').src = imageUrl;
+
+        const imgElement = document.createElement('img');
+        imgElement.src = imageUrl;
+
+        const createdPngElement = document.querySelector('#created-png');
+
+        if (createdPngElement.firstChild) {
+          createdPngElement.removeChild(createdPngElement.firstChild);
+        }
+
+        createdPngElement.appendChild(imgElement);
       });
 
     document.querySelector('#clear-button').addEventListener('click', () => {
